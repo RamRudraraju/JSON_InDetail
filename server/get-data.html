@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Get JSON from Server</title>
+    <script>
+        
+        // 5 Steps to Collect Data from Server
+         function collectJSON()
+         {
+             
+           //  1) 
+             var xmlhttp = new XMLHttpRequest();
+             
+           //  2) 
+             xmlhttp.open("GET", "http://localhost/server/write-json-complex.json", false);
+             
+           //  3)      
+             xmlhttp.send();
+             
+           //  4) 
+             if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+             {
+           //  5) 
+                 var result = xmlhttp.responseText;
+                 document.getElementById("show").innerHTML = result;
+             }
+         }
+    </script>
+</head>
+<body>
+     <button id="btnClick" onclick="collectJSON();">Collect</button>
+     <div id="show"></div>
+</body>
+</html>
